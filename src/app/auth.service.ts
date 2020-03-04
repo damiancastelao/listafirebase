@@ -19,13 +19,13 @@ export class AuthService {
     }
   }) );
 
-  loggin() {
+  login() {
     console.log('login!');
   }
-  gloggin() {
+  glogin() {
     console.log('google login!');
   }
-  loggout() {
+  logout() {
     console.log('logout!');
   }
 }
