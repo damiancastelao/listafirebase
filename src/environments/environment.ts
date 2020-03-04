@@ -12,8 +12,8 @@ export const environment = {
     storageBucket: 'lista-dam-cli.appspot.com',
     messagingSenderId: '561269825263',
     appId: '1:561269825263:web:df7dbca0b279d390bfc51a'
-
-  }
+  },
+  title: 'Angular + Firebase'
 };
 
 /*
