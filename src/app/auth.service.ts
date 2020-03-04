@@ -1,17 +1,22 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth} from '@angular/fire/auth';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {map} from 'rxjs/operators';
 import {AngularFireDatabase} from '@angular/fire/database';
+import {auth} from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(public  auth: AngularFireAuth,
+  email = '';
+  pass = '';
+  authUser = null;
+
+  constructor(public  miauth: AngularFireAuth,
               private db: AngularFireDatabase) { }
 
-  user = this.auth.authState.pipe( map( authState => {
+  user = this.miauth.authState.pipe( map( authState => {
     console.log('authState', authState);
     if (!authState) {
       return null;
@@ -26,6 +31,16 @@ export class AuthService {
   }
   glogin() {
     console.log('google login!');
+    this.miauth.auth.signInWithPopup( new auth.GoogleAuthProvider() )
+      .then( user => {
+        console.log('user logado: ', user);
+        this.email = '';
+        this.pass = '';
+        this.authUser = user.user;
+      })
+      .catch( error => {
+        console.log('error en google login: ', error);
+      });
   }
   logout() {
     console.log('logout!');
