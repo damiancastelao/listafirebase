@@ -7,7 +7,7 @@ import {auth} from 'firebase';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class ServicioAutenticacion {
 
   email = '';
   pass = '';
@@ -16,7 +16,9 @@ export class AuthService {
   constructor(public  miauth: AngularFireAuth,
               private db: AngularFireDatabase) { }
 
-  user = this.miauth.authState.pipe( map( authState => {
+  user = this.miauth.authState;
+
+  /*user = this.miauth.authState.pipe( map( authState => {
     console.log('authState', authState);
     if (!authState) {
       return null;
@@ -25,7 +27,7 @@ export class AuthService {
       return authState;
     }
   }) );
-
+*/
   login() {
     console.log('login!');
   }
@@ -44,5 +46,6 @@ export class AuthService {
   }
   logout() {
     console.log('logout!');
+    this.miauth.auth.signOut();
   }
 }
