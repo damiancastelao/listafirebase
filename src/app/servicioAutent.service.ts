@@ -13,8 +13,7 @@ export class ServicioAutenticacion {
   pass = '';
   authUser = null;
 
-  constructor(public  miauth: AngularFireAuth,
-              private db: AngularFireDatabase) { }
+  constructor(public  miauth: AngularFireAuth) { }
 
   user = this.miauth.authState;
 
