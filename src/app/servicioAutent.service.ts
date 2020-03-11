@@ -28,15 +28,21 @@ export class ServicioAutenticacion {
   }) );
 */
   login() {
-    console.log('login!');
+    console.log('github login!');
+    this.miauth.auth.signInWithPopup( new auth.GithubAuthProvider() )
+      .then( user => {
+        console.log('user logado: ', user);
+        this.authUser = user.user;
+      })
+      .catch( error => {
+        console.log('error en google login: ', error);
+      });
   }
   glogin() {
     console.log('google login!');
     this.miauth.auth.signInWithPopup( new auth.GoogleAuthProvider() )
       .then( user => {
         console.log('user logado: ', user);
-        this.email = '';
-        this.pass = '';
         this.authUser = user.user;
       })
       .catch( error => {
