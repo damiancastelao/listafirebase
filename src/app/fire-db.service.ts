@@ -5,11 +5,28 @@ import {AngularFireDatabase} from '@angular/fire/database';
   providedIn: 'root'
 })
 export class FireDBService {
-
+  /**
+   * Constructor de la clase
+   * @param db objeto para manejar datos en la Database RealTime
+   */
   constructor(private db: AngularFireDatabase) { }
 
-  altausuario() {
-    this.db.object('users/userUID').update({email: 'afa@bbb.com'});
-    console.log('Insertado');
+  /**
+   * Crea entrada según la uid del usuario
+   * @param usuarioNuevoCorreo correo del usuario, dato para la entrada uid
+   * @param usuarioNuevoUID entrada nueva
+   */
+  altausuario(usuarioNuevoCorreo: string, usuarioNuevoUID: string) {
+    this.db.object('users/userUID/' + usuarioNuevoUID.toString()).update({correo: usuarioNuevoCorreo});
+    console.log('Insertado uid');
+  }
+
+  /**
+   * Borra la entrada segun el UID del usuario
+   * @param uidBorrar uid del usuario logueado
+   */
+  bajausuario(uidBorrar: string) {
+    // boora entrada
+    this.db.object('users/userUID/' + uidBorrar).remove();
   }
 }
