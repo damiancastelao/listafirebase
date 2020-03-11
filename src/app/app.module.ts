@@ -7,8 +7,6 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {RouterModule} from '@angular/router';
-import { AngularFireDatabase } from '@angular/fire/database';
-
 
 @NgModule({
   declarations: [
