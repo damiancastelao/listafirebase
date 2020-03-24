@@ -1,22 +1,22 @@
 <div class="loginDiv" *ngIf="( authApp.user | async) as obs; else login">{{obs.email}} - {{obs.uid}}
   <br/><br/>
-  <button ion-button class="btn btn-secondary" (click)="authApp.logout()"><i class="fas fa-sign-out-alt"></i> OUT</button>
+  <ion-button color="warning" (click)="authApp.logout()"><i class="fas fa-sign-out-alt"></i> OUT</ion-button>
   <br/><br/>
-  <button ion-button class="btn btn-success" (click)="dbApp.altausuario(obs.email, obs.uid)"><i class="fas fa-check"></i> ALTA</button>
-  <button ion-button class="btn btn-danger" (click)="dbApp.bajausuario(obs.uid)"><i class="far fa-trash-alt"></i> BAJA</button>
+  <ion-button  color="success" (click)="dbApp.altausuario(obs.email, obs.uid)"><i class="fas fa-check"></i> ALTA</ion-button>
+  <ion-button  color="danger" (click)="dbApp.bajausuario(obs.uid)"><i class="far fa-trash-alt"></i> BAJA</ion-button>
   <br/><br/>
 </div>
 
   <ng-template #login>
     <div class="loginDiv">
         <br/><br/>
-        <button ion-button class="btn btn-primary" (click)="authApp.login()">
+        <ion-button color="tertiary" (click)="authApp.login()">
           <i class="fab fa-github"></i>
-          GitHub Login</button>
+          GitHub Login</ion-button>
         <br/><br/>
-        <button ion-button ion-button class="btn btn-danger" (click)="authApp.glogin()">
+        <ion-button color="danger"(click)="authApp.glogin()">
           <i class="fab fa-google"></i>
           Google Login
-        </button>
+        </ion-button>
     </div>
   </ng-template>
