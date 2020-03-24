@@ -7,6 +7,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {RouterModule} from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {RouterModule} from '@angular/router';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    RouterModule
+    RouterModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

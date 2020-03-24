@@ -20,7 +20,11 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@ionic/angular": "^5.0.5",
+    "@ionic/cli": "^6.2.2",
+    "cordova": "^9.0.0",
     "firebase": "^7.9.3",
+    "ionic": "^5.4.16",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -44,6 +48,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "@ionic/angular-toolkit": "latest"
   }
 }
